@@ -1,4 +1,3 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate , MessagesPlaceholder
 from pydantic import BaseModel , Field
 from typing import List
@@ -17,7 +16,7 @@ class StructuredQuery(BaseModel):
     context: str = Field(description="Contextual information try to enhance this")
 
 generate_model = ChatOpenAI(
-    model="google/gemma-4-26b-a4b-it:free",  # OpenRouter model slug format
+    model="google/gemma-4-26b-a4b-it:free", 
     openai_api_key=os.environ["OPENROUTER_API_KEY"],
     openai_api_base="https://openrouter.ai/api/v1",
     temperature=0.7
@@ -25,11 +24,11 @@ generate_model = ChatOpenAI(
 query_enhancer_model = ChatGroq(model = "llama-3.3-70b-versatile") 
 structured_model = query_enhancer_model.with_structured_output(StructuredQuery)
 
-
-# query = "I want to develop an automation system for image generation"
+# query = "Hello my name is Mannan Sood, I want to build an ecommerce website using HTML , CSS , Javascript"
 
 def query_enhancer(query):
-    prompt = f"""You are a professional query enhancer, you have to enhance the user query while preserving it's intent
+    prompt = f"""
+    You are a professional query enhancer, you have to enhance the user query while preserving it's intent
 
     The user query is {query}
 
@@ -47,10 +46,8 @@ def query_enhancer(query):
 
 
 
-
 prompt_generation = ChatPromptTemplate.from_messages([
     ("system", (
-
         "You are an expert Principal Prompt Engineer specializing in designing production-ready system prompts "
         "for enterprise AI models (such as OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, and Google Gemini 1.5/2.5).\n\n"
         "Your task is to take structured parameters describing an AI application and synthesize them into a clean, "
