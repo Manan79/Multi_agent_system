@@ -34,4 +34,5 @@ dependencies = [
     "sentence-transformers>=5.7.0",
     "groq>=0.37.1",
     "langchain-mcp-adapters>=0.3.2",
+    "mcp-server-git>=2026.8.18",
 ]
