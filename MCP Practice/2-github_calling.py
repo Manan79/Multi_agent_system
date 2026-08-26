@@ -21,8 +21,21 @@ async def main():
 
     tools = await client.get_tools()
     # print("Available tools are:", tools)
-    for tool in tools:
-        print(tool.name)
+    # for tool in tools:
+    #     print(tool.name)
+    tools_used = next(
+        t for t in tools
+        if t.name == 'search_issues'
+    )
+#     result = await tools_used.ainvoke({
+#     "owner": "Manan79",
+#     "repo": "Multi_agent_system",
+#     "path": "Memory"
+# })
+    result = await tools_used.ainvoke({
+    "query": "repo:Manan79/Multi_agent_system"
+})
+    print(result)
     
 
 
