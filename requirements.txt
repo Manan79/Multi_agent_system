@@ -21,5 +21,6 @@ langchain-openai
 fastmcp
 mcp
 sentence-transformers
-mem0
+# mem0
 groq
+nemoguardrails
