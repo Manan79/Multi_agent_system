@@ -24,3 +24,4 @@ sentence-transformers
 # mem0
 groq
 nemoguardrails
+langchain_neo4j
