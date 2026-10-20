@@ -25,3 +25,4 @@ sentence-transformers
 groq
 nemoguardrails
 langchain_neo4j
+portkey-ai
